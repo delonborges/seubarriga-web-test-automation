@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static com.delonborges.utils.Utils.clicaBotaoEditarContaTabela;
+
 public class ContasPage extends BasePage {
     // Elements
     @FindBy(id = "nome")
@@ -15,20 +17,17 @@ public class ContasPage extends BasePage {
     private WebElement alertaContaAdicionada;
 
     // Methods
-    public void adicionaConta(String nome) {
-        this.preencheCampoNome(nome);
-        this.clicaBotaoSalvar();
+    public void preencheCampoNome(String nome) {
+        this.campoNome.sendKeys(nome);
+    }
+    public void clicaBotaoSalvar() {
+        this.botaoSalvar.click();
     }
     public String retornaMensagemDoAlerta() {
         wait.until(ExpectedConditions.visibilityOf(alertaContaAdicionada));
         return this.alertaContaAdicionada.getText();
     }
-
-    // Helpers
-    private void preencheCampoNome(String nome) {
-        this.campoNome.sendKeys(nome);
-    }
-    private void clicaBotaoSalvar() {
-        this.botaoSalvar.click();
+    public void clicaAlterarConta(String nome) {
+        clicaBotaoEditarContaTabela("Conta", nome, "Ações", "tabelaContas");
     }
 }
