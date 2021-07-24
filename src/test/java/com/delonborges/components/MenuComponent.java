@@ -9,18 +9,22 @@ public class MenuComponent extends BasePage {
     @FindBy(linkText = "Contas")
     private WebElement linkContas;
     @FindBy(linkText = "Adicionar")
-    private WebElement linkAdicionar;
+    private WebElement linkAdicionarConta;
     @FindBy(linkText = "Listar")
-    private WebElement linkListar;
+    private WebElement linkListarContas;
+    @FindBy(linkText = "Criar Movimentação")
+    private WebElement linkAdicionarMovimentacao;
 
     // Methods
     public void acessarPaginaAdicionarConta() {
         this.linkContas.click();
-        this.linkAdicionar.click();
+        this.linkAdicionarConta.click();
     }
-
     public void acessarPaginaListarContas() {
         this.linkContas.click();
-        this.linkListar.click();
+        this.linkListarContas.click();
+    }
+    public void acessarPaginaAdicionarMovimentacao() {
+        this.linkAdicionarMovimentacao.click();
     }
 }

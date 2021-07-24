@@ -7,26 +7,36 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static com.delonborges.utils.Utils.clicaBotaoEditarContaTabela;
 
-public class ContasPage extends BasePage {
+public class ContaPage extends BasePage {
     // Elements
     @FindBy(id = "nome")
     private WebElement campoNome;
     @FindBy(css = "button[type=submit]")
     private WebElement botaoSalvar;
     @FindBy(css = "div[class='alert alert-success']")
-    private WebElement alertaContaAdicionada;
+    private WebElement alertaDeSucesso;
+    @FindBy(css = "div[class='alert alert-danger']")
+    private WebElement alertaDeErro;
 
     // Methods
     public void preencheCampoNome(String nome) {
         this.campoNome.sendKeys(nome);
     }
+
     public void clicaBotaoSalvar() {
         this.botaoSalvar.click();
     }
-    public String retornaMensagemDoAlerta() {
-        wait.until(ExpectedConditions.visibilityOf(alertaContaAdicionada));
-        return this.alertaContaAdicionada.getText();
+
+    public String retornaMensagemDoAlertaDeSucesso() {
+        wait.until(ExpectedConditions.visibilityOf(alertaDeSucesso));
+        return this.alertaDeSucesso.getText();
     }
+
+    public String retornaMensagemDoAlertaDeErro() {
+        wait.until(ExpectedConditions.visibilityOf(alertaDeErro));
+        return this.alertaDeErro.getText();
+    }
+
     public void clicaAlterarConta(String nome) {
         clicaBotaoEditarContaTabela("Conta", nome, "Ações", "tabelaContas");
     }
