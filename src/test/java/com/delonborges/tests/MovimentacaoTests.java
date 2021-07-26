@@ -9,6 +9,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.delonborges.utils.DataUtils.*;
+
 public class MovimentacaoTests extends BaseTest {
 
     MenuComponent menuComponent = new MenuComponent();
@@ -17,8 +19,8 @@ public class MovimentacaoTests extends BaseTest {
     @Test
     public void insereMovimentacaoComSucessoTest() {
         menuComponent.acessaPaginaAdicionarMovimentacao();
-        movimentacaoPage.preencheDataMovimentacao("24/07/2021");
-        movimentacaoPage.preencheDataPagamento("24/07/2021");
+        movimentacaoPage.preencheDataMovimentacao(obtemDataAtual());
+        movimentacaoPage.preencheDataPagamento(obtemDataAtual());
         movimentacaoPage.preencheDescricao("Movimentação");
         movimentacaoPage.preencheInteressado("Delon");
         movimentacaoPage.preencheValor("123.45");
@@ -49,5 +51,23 @@ public class MovimentacaoTests extends BaseTest {
 
         Assert.assertTrue(mensagemAtual.containsAll(mensagemEsperada));
         Assert.assertEquals(6, mensagemAtual.size());
+    }
+
+    @Test
+    public void insereMovimentacaoComDataFuturaTest() {
+        menuComponent.acessaPaginaAdicionarMovimentacao();
+        movimentacaoPage.preencheDataMovimentacao(obtemDataAtualEAdicionaDias(10));
+        movimentacaoPage.preencheDataPagamento(obtemDataAtualEAdicionaDias(10));
+        movimentacaoPage.preencheDescricao("Movimentação");
+        movimentacaoPage.preencheInteressado("Delon");
+        movimentacaoPage.preencheValor("123.45");
+        movimentacaoPage.selecionaConta("Conta de teste alterada");
+        movimentacaoPage.marcaStatusPago();
+        movimentacaoPage.clicaBotaoSalvar();
+
+        String mensagemEsperada = "Data da Movimentação deve ser menor ou igual à data atual";
+        String mensagemAtual = movimentacaoPage.retornaMensagemDoAlertaDeErro();
+
+        Assert.assertEquals(mensagemEsperada, mensagemAtual);
     }
 }

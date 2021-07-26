@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import static com.delonborges.utils.Utils.clicaBotaoEditarContaTabela;
+import static com.delonborges.utils.PageUtils.clicaBotaoEditarContaTabela;
 
 public class ContaPage extends BasePage {
     // Elements

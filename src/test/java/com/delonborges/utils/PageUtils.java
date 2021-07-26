@@ -7,7 +7,7 @@ import java.util.List;
 
 import static com.delonborges.common.DriverFactory.getDriver;
 
-public class Utils {
+public class PageUtils {
 
     //Methods
     public static void clicaBotaoEditarContaTabela(String colunaBusca, String valor, String colunaBotao, String idTabela) {

@@ -74,6 +74,11 @@ public class MovimentacaoPage extends BasePage {
         return this.alertaDeSucesso.getText();
     }
 
+    public String retornaMensagemDoAlertaDeErro() {
+        wait.until(ExpectedConditions.visibilityOf(alertaDeErro));
+        return this.alertaDeErro.getText();
+    }
+
     public List<String> retornaListaMensagemDoAlertaDeErro() {
         wait.until(ExpectedConditions.visibilityOf(alertaDeErro));
         List<WebElement> listaDeElementos = this.alertaDeErro.findElements(By.cssSelector("li"));
