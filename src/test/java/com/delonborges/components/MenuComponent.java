@@ -16,15 +16,15 @@ public class MenuComponent extends BasePage {
     private WebElement linkAdicionarMovimentacao;
 
     // Methods
-    public void acessarPaginaAdicionarConta() {
+    public void acessaPaginaAdicionarConta() {
         this.linkContas.click();
         this.linkAdicionarConta.click();
     }
-    public void acessarPaginaListarContas() {
+    public void acessaPaginaListarContas() {
         this.linkContas.click();
         this.linkListarContas.click();
     }
-    public void acessarPaginaAdicionarMovimentacao() {
+    public void acessaPaginaAdicionarMovimentacao() {
         this.linkAdicionarMovimentacao.click();
     }
 }

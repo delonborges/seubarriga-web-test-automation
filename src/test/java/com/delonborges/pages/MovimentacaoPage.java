@@ -1,10 +1,14 @@
 package com.delonborges.pages;
 
 import com.delonborges.common.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MovimentacaoPage extends BasePage {
 
@@ -30,16 +34,39 @@ public class MovimentacaoPage extends BasePage {
     @FindBy(css = "div[class='alert alert-danger']")
     private WebElement alertaDeErro;
 
+
     // Methods
-    public void preencheFormularioMovimentacao(String dataMovimentacao, String dataPagamento, String descricao, String interessado, String valor, String conta) {
-        this.preencherDataMovimentacao(dataMovimentacao);
-        this.preencherDataPagamento(dataPagamento);
-        this.preencherDescricao(descricao);
-        this.preencherInteressado(interessado);
-        this.preencherValor(valor);
-        this.selecionarConta(conta);
-        this.marcaStatusPago();
-        this.clicaBotaoSalvar();
+    public void preencheDataMovimentacao(String data) {
+        this.campoDataMovimentacao.sendKeys(data);
+    }
+
+    public void preencheDataPagamento(String data) {
+        this.campoDataPagamento.sendKeys(data);
+    }
+
+    public void preencheDescricao(String descricao) {
+        this.campoDescricao.sendKeys(descricao);
+    }
+
+    public void preencheInteressado(String interessado) {
+        this.campoInteressado.sendKeys(interessado);
+    }
+
+    public void preencheValor(String valor) {
+        this.campoValor.sendKeys(valor);
+    }
+
+    public void selecionaConta(String conta) {
+        Select combo = new Select(this.comboConta);
+        combo.selectByVisibleText(conta);
+    }
+
+    public void marcaStatusPago() {
+        this.radioStatus.click();
+    }
+
+    public void clicaBotaoSalvar() {
+        this.botaoSalvar.click();
     }
 
     public String retornaMensagemDoAlertaDeSucesso() {
@@ -47,42 +74,13 @@ public class MovimentacaoPage extends BasePage {
         return this.alertaDeSucesso.getText();
     }
 
-    public String retornaMensagemDoAlertaDeErro() {
+    public List<String> retornaListaMensagemDoAlertaDeErro() {
         wait.until(ExpectedConditions.visibilityOf(alertaDeErro));
-        return this.alertaDeErro.getText();
-    }
-
-    // Helpers
-    private void preencherDataMovimentacao(String data) {
-        this.campoDataMovimentacao.sendKeys(data);
-    }
-
-    private void preencherDataPagamento(String data) {
-        this.campoDataPagamento.sendKeys(data);
-    }
-
-    private void preencherDescricao(String descricao) {
-        this.campoDescricao.sendKeys(descricao);
-    }
-
-    private void preencherInteressado(String interessado) {
-        this.campoInteressado.sendKeys(interessado);
-    }
-
-    private void preencherValor(String valor) {
-        this.campoValor.sendKeys(valor);
-    }
-
-    private void selecionarConta(String conta) {
-        Select combo = new Select(this.comboConta);
-        combo.selectByVisibleText(conta);
-    }
-
-    private void marcaStatusPago() {
-        this.radioStatus.click();
-    }
-
-    private void clicaBotaoSalvar() {
-        this.botaoSalvar.click();
+        List<WebElement> listaDeElementos = this.alertaDeErro.findElements(By.cssSelector("li"));
+        List<String> listaDeErros = new ArrayList<>();
+        for (WebElement elemento: listaDeElementos) {
+            listaDeErros.add(elemento.getText());
+        }
+        return listaDeErros;
     }
 }

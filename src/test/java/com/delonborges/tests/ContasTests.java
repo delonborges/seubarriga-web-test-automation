@@ -12,8 +12,8 @@ public class ContasTests extends BaseTest {
     ContaPage contaPage = new ContaPage();
 
     @Test
-    public void inserirContaComSucessoTest() {
-        menuComponent.acessarPaginaAdicionarConta();
+    public void insereContaComSucessoTest() {
+        menuComponent.acessaPaginaAdicionarConta();
         contaPage.preencheCampoNome("Conta de teste");
         contaPage.clicaBotaoSalvar();
 
@@ -24,8 +24,8 @@ public class ContasTests extends BaseTest {
     }
 
     @Test
-    public void alterarContaComSucessoTest() {
-        menuComponent.acessarPaginaListarContas();
+    public void alteraContaComSucessoTest() {
+        menuComponent.acessaPaginaListarContas();
         contaPage.clicaAlterarConta("Conta de teste");
         contaPage.preencheCampoNome("Conta de teste alterada");
         contaPage.clicaBotaoSalvar();
@@ -37,8 +37,8 @@ public class ContasTests extends BaseTest {
     }
 
     @Test
-    public void inserirContaComMesmoNomeTest() {
-        menuComponent.acessarPaginaAdicionarConta();
+    public void insereContaComMesmoNomeTest() {
+        menuComponent.acessaPaginaAdicionarConta();
         contaPage.preencheCampoNome("Conta de teste alterada");
         contaPage.clicaBotaoSalvar();
 
