@@ -13,8 +13,8 @@ import static com.delonborges.utils.DataUtils.*;
 
 public class MovimentacaoTests extends BaseTest {
 
-    MenuComponent menuComponent = new MenuComponent();
-    MovimentacaoPage movimentacaoPage = new MovimentacaoPage();
+    private final MenuComponent menuComponent = new MenuComponent();
+    private final MovimentacaoPage movimentacaoPage = new MovimentacaoPage();
 
     @Test
     public void insereMovimentacaoComSucessoTest() {

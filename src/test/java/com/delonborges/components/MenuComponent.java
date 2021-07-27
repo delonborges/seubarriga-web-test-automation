@@ -14,17 +14,25 @@ public class MenuComponent extends BasePage {
     private WebElement linkListarContas;
     @FindBy(linkText = "Criar Movimentação")
     private WebElement linkAdicionarMovimentacao;
+    @FindBy(linkText = "Resumo Mensal")
+    private WebElement linkResumoMensal;
 
     // Methods
     public void acessaPaginaAdicionarConta() {
         this.linkContas.click();
         this.linkAdicionarConta.click();
     }
+
     public void acessaPaginaListarContas() {
         this.linkContas.click();
         this.linkListarContas.click();
     }
+
     public void acessaPaginaAdicionarMovimentacao() {
         this.linkAdicionarMovimentacao.click();
+    }
+
+    public void acessaPaginaResumoMensal() {
+        this.linkResumoMensal.click();
     }
 }

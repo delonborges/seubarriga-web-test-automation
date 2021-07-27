@@ -8,8 +8,8 @@ import org.junit.Test;
 
 public class ContasTests extends BaseTest {
 
-    MenuComponent menuComponent = new MenuComponent();
-    ContaPage contaPage = new ContaPage();
+    private final MenuComponent menuComponent = new MenuComponent();
+    private final ContaPage contaPage = new ContaPage();
 
     @Test
     public void insereContaComSucessoTest() {
