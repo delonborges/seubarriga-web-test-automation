@@ -83,7 +83,7 @@ public class MovimentacaoPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(alertaDeErro));
         List<WebElement> listaDeElementos = this.alertaDeErro.findElements(By.cssSelector("li"));
         List<String> listaDeErros = new ArrayList<>();
-        for (WebElement elemento: listaDeElementos) {
+        for (WebElement elemento : listaDeElementos) {
             listaDeErros.add(elemento.getText());
         }
         return listaDeErros;

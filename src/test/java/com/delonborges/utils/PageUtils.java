@@ -26,6 +26,7 @@ public class PageUtils {
 
         return tabela.findElement(By.cssSelector("tr:nth-child(" + idLinha + ") > td:nth-child(" + idColunaBotao + ")"));
     }
+
     private static Integer obtemIndiceLinha(String valor, WebElement tabela, Integer idColuna) {
         List<WebElement> linhas = tabela.findElements(By.cssSelector("tbody > tr > td:nth-child(" + idColuna + ")"));
         int idLinha = -1;
@@ -37,6 +38,7 @@ public class PageUtils {
         }
         return idLinha;
     }
+
     private static Integer obtemIndiceColuna(String coluna, WebElement tabela) {
         List<WebElement> colunas = tabela.findElements(By.tagName("th"));
         int idColuna = -1;

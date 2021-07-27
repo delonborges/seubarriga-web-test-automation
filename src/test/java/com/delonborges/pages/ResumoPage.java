@@ -17,6 +17,7 @@ public class ResumoPage extends BasePage {
     public void clicaLinkRemoverMovimentacao() {
         this.linkRemoverMovimentacao.click();
     }
+
     public String retornaMensagemDoAlertaDeSucesso() {
         wait.until(ExpectedConditions.visibilityOf(alertaDeSucesso));
         return this.alertaDeSucesso.getText();

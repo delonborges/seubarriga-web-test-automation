@@ -33,9 +33,11 @@ public class LoginPage extends BasePage {
     private void preencheCampoEmail(String email) {
         this.campoEmail.sendKeys(email);
     }
+
     private void preencheCampoSenha(String senha) {
         this.campoSenha.sendKeys(senha);
     }
+
     private void clicaBotaoEntrar() {
         this.botaoEntrar.click();
     }

@@ -9,7 +9,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.delonborges.utils.DataUtils.*;
+import static com.delonborges.utils.DataUtils.obtemDataAtual;
+import static com.delonborges.utils.DataUtils.obtemDataAtualEAdicionaDias;
 
 public class MovimentacaoTests extends BaseTest {
 

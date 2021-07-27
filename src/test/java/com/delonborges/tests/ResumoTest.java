@@ -12,7 +12,7 @@ public class ResumoTest extends BaseTest {
     private final ResumoPage resumoPage = new ResumoPage();
 
     @Test
-    public void excluirMovimentacaoComSucessoTest() {
+    public void excluiMovimentacaoComSucessoTest() {
         menuComponent.acessaPaginaResumoMensal();
         resumoPage.clicaLinkRemoverMovimentacao();
 
