@@ -8,8 +8,6 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import static com.delonborges.utils.PageUtils.obtemTituloPagina;
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ResumoTests extends BaseTest {
 
@@ -31,9 +29,9 @@ public class ResumoTests extends BaseTest {
     public void t02_resumoMensalTest() {
         menuComponent.acessaPaginaResumoMensal();
 
-        String tituloEsperado = "Seu Barriga - Extrato";
-        String tituloAtual = obtemTituloPagina();
+        Integer quantidadeEsperada = 6;
+        Integer quantidadeAtual = resumoPage.retornaQuantidadeLinhasTabela();
 
-        Assert.assertEquals(tituloEsperado, tituloAtual);
+        Assert.assertEquals(quantidadeEsperada, quantidadeAtual);
     }
 }

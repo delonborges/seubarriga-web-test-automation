@@ -15,6 +15,30 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
+    <build>
+        <testSourceDirectory>
+            src
+        </testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <includes>
+                        com/delonborges/suites/*.java
+                    </includes>
+                    <parallel>
+                        all
+                    </parallel>
+                    <threadCount>
+                        1
+                    </threadCount>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
