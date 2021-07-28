@@ -6,10 +6,22 @@ import com.delonborges.pages.ResumoPage;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static com.delonborges.utils.PageUtils.obtemTituloPagina;
+
 public class ResumoTest extends BaseTest {
 
     private final MenuComponent menuComponent = new MenuComponent();
     private final ResumoPage resumoPage = new ResumoPage();
+
+    @Test
+    public void resumoMensalTest() {
+        menuComponent.acessaPaginaResumoMensal();
+
+        String tituloEsperado = "Seu Barriga - Extrato";
+        String tituloAtual = obtemTituloPagina();
+
+        Assert.assertEquals(tituloEsperado, tituloAtual);
+    }
 
     @Test
     public void excluiMovimentacaoComSucessoTest() {
