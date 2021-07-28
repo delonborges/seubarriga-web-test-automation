@@ -1,20 +1,13 @@
 package com.delonborges.utils;
 
-import com.delonborges.common.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-import static com.delonborges.common.DriverFactory.getDriver;
-
 public class PageUtils {
 
     //Methods
-    public static String obtemTituloPagina() {
-        return getDriver().getTitle();
-    }
-
     public static String obtemValorCelula(String colunaBusca, String valor, String colunaBotao, WebElement tabela) {
         return obtemCelula(colunaBusca, valor, colunaBotao, tabela).getText();
     }

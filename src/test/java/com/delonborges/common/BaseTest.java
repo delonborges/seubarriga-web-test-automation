@@ -1,5 +1,6 @@
 package com.delonborges.common;
 
+import com.delonborges.pages.HomePage;
 import com.delonborges.pages.LoginPage;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
@@ -18,15 +19,18 @@ import static com.delonborges.common.DriverFactory.stopDriver;
 public class BaseTest {
 
     // Variables
+    private final LoginPage loginPage = new LoginPage();
+    private final HomePage homePage = new HomePage();
+
     @Rule
     public TestName testName = new TestName();
-    public LoginPage loginPage = new LoginPage();
 
     // Setup
     @Before
     public void setUp() {
         getDriver();
-        loginPage.efetuaLogin("delon@borges.com", "delonborges");
+        this.loginPage.efetuaLogin("delon@borges.com", "delonborges");
+        this.homePage.clicaLinkReset();
     }
 
     // Teardown

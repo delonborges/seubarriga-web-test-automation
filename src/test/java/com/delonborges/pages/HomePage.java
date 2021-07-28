@@ -10,8 +10,14 @@ public class HomePage extends BasePage {
     // Elements
     @FindBy(id = "tabelaSaldo")
     private WebElement tabelaSaldo;
+    @FindBy(linkText = "reset")
+    private WebElement linkReset;
 
     // Methods
+    public void clicaLinkReset() {
+        this.linkReset.click();
+    }
+
     public String retornaSaldoConta(String nome) {
         return obtemValorCelula("Conta", nome, "Saldo", this.tabelaSaldo);
     }

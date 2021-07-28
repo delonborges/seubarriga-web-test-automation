@@ -32,12 +32,12 @@ public class ContaPage extends BasePage {
     }
 
     public String retornaMensagemDoAlertaDeSucesso() {
-        wait.until(ExpectedConditions.visibilityOf(alertaDeSucesso));
+        wait.until(ExpectedConditions.visibilityOf(this.alertaDeSucesso));
         return this.alertaDeSucesso.getText();
     }
 
     public String retornaMensagemDoAlertaDeErro() {
-        wait.until(ExpectedConditions.visibilityOf(alertaDeErro));
+        wait.until(ExpectedConditions.visibilityOf(this.alertaDeErro));
         return this.alertaDeErro.getText();
     }
 

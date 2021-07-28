@@ -6,8 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class MenuComponent extends BasePage {
     // Elements
-    @FindBy(linkText = "Home")
-    private WebElement linkHome;
     @FindBy(linkText = "Contas")
     private WebElement linkContas;
     @FindBy(linkText = "Adicionar")
