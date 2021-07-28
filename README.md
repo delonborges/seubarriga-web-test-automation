@@ -29,7 +29,7 @@ mvn install -DskipTests
 ```
 
 
-### Execução
+### Execução local
 Inicie a execução dos testes:
 ```
 mvn test
@@ -37,4 +37,18 @@ mvn test
 Ou, execute o comando abaixo para executar a suíte de testes `TestsSuite`, especificamente:
 ```
 mvn -Dtest=TestsSuite test 
+```
+
+#### Execução remota
+Altere o arquivo `Properties`, dentro da pasta `common`, para `GRID`:
+```
+public static Executions execution = Executions.GRID;
+```
+Inicialize o hub:
+```
+java -jar selenium-server-standalone-3.141.59.jar -role hub
+```
+Inicialize o(s) nó(s):
+```
+java -jar selenium-server-standalone-3.141.59.jar -role node -hub http://localhost:4444/grid/register
 ```
