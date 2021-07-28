@@ -47,4 +47,15 @@ public class ContasTests extends BaseTest {
 
         Assert.assertEquals(mensagemEsperada, mensagemAtual);
     }
+
+    @Test
+    public void removeContaComMovimentacaoTest() {
+        menuComponent.acessaPaginaListarContas();
+        contaPage.clicaRemoverConta("Conta de teste alterada");
+
+        String mensagemEsperada = "Conta em uso na movimentações";
+        String mensagemAtual = contaPage.retornaMensagemDoAlertaDeErro();
+
+        Assert.assertEquals(mensagemEsperada, mensagemAtual);
+    }
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static com.delonborges.utils.PageUtils.clicaBotaoEditarContaTabela;
+import static com.delonborges.utils.PageUtils.clicaBotaoRemoverContaTabela;
 
 public class ContaPage extends BasePage {
     // Elements
@@ -39,5 +40,9 @@ public class ContaPage extends BasePage {
 
     public void clicaAlterarConta(String nome) {
         clicaBotaoEditarContaTabela("Conta", nome, "Ações", "tabelaContas");
+    }
+
+    public void clicaRemoverConta(String nome) {
+        clicaBotaoRemoverContaTabela("Conta", nome, "Ações", "tabelaContas");
     }
 }

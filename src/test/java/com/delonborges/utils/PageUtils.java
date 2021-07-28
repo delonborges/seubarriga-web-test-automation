@@ -16,6 +16,12 @@ public class PageUtils {
         celula.findElement(By.cssSelector("a[href^='/editarConta']")).click();
     }
 
+    public static void clicaBotaoRemoverContaTabela(String colunaBusca, String valor, String colunaBotao, String idTabela) {
+        WebElement celula = obtemCelula(colunaBusca, valor, colunaBotao, idTabela);
+
+        celula.findElement(By.cssSelector("a[href^='/removerConta']")).click();
+    }
+
     // Helpers
     private static WebElement obtemCelula(String colunaBusca, String valor, String colunaBotao, String idTabela) {
         WebElement tabela = getDriver().findElement(By.id(idTabela));
