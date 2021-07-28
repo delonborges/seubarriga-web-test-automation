@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class MenuComponent extends BasePage {
     // Elements
+    @FindBy(linkText = "Home")
+    private WebElement linkHome;
     @FindBy(linkText = "Contas")
     private WebElement linkContas;
     @FindBy(linkText = "Adicionar")
@@ -18,6 +20,10 @@ public class MenuComponent extends BasePage {
     private WebElement linkResumoMensal;
 
     // Methods
+    public void acessaPaginaHome() {
+        this.linkHome.click();
+    }
+
     public void acessaPaginaAdicionarConta() {
         this.linkContas.click();
         this.linkAdicionarConta.click();

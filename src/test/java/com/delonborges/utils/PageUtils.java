@@ -5,27 +5,27 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-import static com.delonborges.common.DriverFactory.getDriver;
-
 public class PageUtils {
 
     //Methods
-    public static void clicaBotaoEditarContaTabela(String colunaBusca, String valor, String colunaBotao, String idTabela) {
-        WebElement celula = obtemCelula(colunaBusca, valor, colunaBotao, idTabela);
+    public static String obtemValorCelula(String colunaBusca, String valor, String colunaBotao, WebElement tabela) {
+        return obtemCelula(colunaBusca, valor, colunaBotao, tabela).getText();
+    }
+
+    public static void clicaBotaoEditarContaTabela(String colunaBusca, String valor, String colunaBotao, WebElement tabela) {
+        WebElement celula = obtemCelula(colunaBusca, valor, colunaBotao, tabela);
 
         celula.findElement(By.cssSelector("a[href^='/editarConta']")).click();
     }
 
-    public static void clicaBotaoRemoverContaTabela(String colunaBusca, String valor, String colunaBotao, String idTabela) {
-        WebElement celula = obtemCelula(colunaBusca, valor, colunaBotao, idTabela);
+    public static void clicaBotaoRemoverContaTabela(String colunaBusca, String valor, String colunaBotao, WebElement tabela) {
+        WebElement celula = obtemCelula(colunaBusca, valor, colunaBotao, tabela);
 
         celula.findElement(By.cssSelector("a[href^='/removerConta']")).click();
     }
 
     // Helpers
-    private static WebElement obtemCelula(String colunaBusca, String valor, String colunaBotao, String idTabela) {
-        WebElement tabela = getDriver().findElement(By.id(idTabela));
-
+    private static WebElement obtemCelula(String colunaBusca, String valor, String colunaBotao, WebElement tabela) {
         int idColuna = obtemIndiceColuna(colunaBusca, tabela);
         int idLinha = obtemIndiceLinha(valor, tabela, idColuna);
         int idColunaBotao = obtemIndiceColuna(colunaBotao, tabela);

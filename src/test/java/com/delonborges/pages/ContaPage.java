@@ -18,6 +18,9 @@ public class ContaPage extends BasePage {
     private WebElement alertaDeSucesso;
     @FindBy(css = "div[class='alert alert-danger']")
     private WebElement alertaDeErro;
+    // Elements
+    @FindBy(id = "tabelaContas")
+    private WebElement tabelaContas;
 
     // Methods
     public void preencheCampoNome(String nome) {
@@ -39,10 +42,10 @@ public class ContaPage extends BasePage {
     }
 
     public void clicaAlterarConta(String nome) {
-        clicaBotaoEditarContaTabela("Conta", nome, "Ações", "tabelaContas");
+        clicaBotaoEditarContaTabela("Conta", nome, "Ações", this.tabelaContas);
     }
 
     public void clicaRemoverConta(String nome) {
-        clicaBotaoRemoverContaTabela("Conta", nome, "Ações", "tabelaContas");
+        clicaBotaoRemoverContaTabela("Conta", nome, "Ações", this.tabelaContas);
     }
 }
