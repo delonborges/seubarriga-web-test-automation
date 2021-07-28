@@ -18,12 +18,12 @@ public class ContaPage extends BasePage {
     private WebElement alertaDeSucesso;
     @FindBy(css = "div[class='alert alert-danger']")
     private WebElement alertaDeErro;
-    // Elements
     @FindBy(id = "tabelaContas")
     private WebElement tabelaContas;
 
     // Methods
     public void preencheCampoNome(String nome) {
+        this.campoNome.clear();
         this.campoNome.sendKeys(nome);
     }
 

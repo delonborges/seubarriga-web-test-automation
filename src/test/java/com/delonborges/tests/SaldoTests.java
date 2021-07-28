@@ -11,8 +11,8 @@ public class SaldoTests extends BaseTest {
 
     @Test
     public void saldoContaTest() {
-        String valorEsperado = "1534.00";
-        String valorAtual = homePage.retornaSaldoConta("Conta para saldo");
+        String valorEsperado = "123.45";
+        String valorAtual = homePage.retornaSaldoConta("Conta de teste alterada");
 
         Assert.assertEquals(valorEsperado, valorAtual);
     }

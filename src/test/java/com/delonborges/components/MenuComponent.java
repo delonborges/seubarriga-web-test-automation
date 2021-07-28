@@ -20,10 +20,6 @@ public class MenuComponent extends BasePage {
     private WebElement linkResumoMensal;
 
     // Methods
-    public void acessaPaginaHome() {
-        this.linkHome.click();
-    }
-
     public void acessaPaginaAdicionarConta() {
         this.linkContas.click();
         this.linkAdicionarConta.click();

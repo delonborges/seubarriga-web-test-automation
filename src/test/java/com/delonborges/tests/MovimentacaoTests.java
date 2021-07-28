@@ -4,7 +4,9 @@ import com.delonborges.common.BaseTest;
 import com.delonborges.components.MenuComponent;
 import com.delonborges.pages.MovimentacaoPage;
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,13 +14,14 @@ import java.util.List;
 import static com.delonborges.utils.DataUtils.obtemDataAtual;
 import static com.delonborges.utils.DataUtils.obtemDataAtualEAdicionaDias;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MovimentacaoTests extends BaseTest {
 
     private final MenuComponent menuComponent = new MenuComponent();
     private final MovimentacaoPage movimentacaoPage = new MovimentacaoPage();
 
     @Test
-    public void insereMovimentacaoComSucessoTest() {
+    public void t01_insereMovimentacaoComSucessoTest() {
         menuComponent.acessaPaginaAdicionarMovimentacao();
         movimentacaoPage.preencheDataMovimentacao(obtemDataAtual());
         movimentacaoPage.preencheDataPagamento(obtemDataAtual());
@@ -36,7 +39,7 @@ public class MovimentacaoTests extends BaseTest {
     }
 
     @Test
-    public void insereMovimentacaoSemCamposObrigatoriosTest() {
+    public void t02_insereMovimentacaoSemCamposObrigatoriosTest() {
         menuComponent.acessaPaginaAdicionarMovimentacao();
         movimentacaoPage.clicaBotaoSalvar();
 
@@ -55,7 +58,7 @@ public class MovimentacaoTests extends BaseTest {
     }
 
     @Test
-    public void insereMovimentacaoComDataFuturaTest() {
+    public void t03_insereMovimentacaoComDataFuturaTest() {
         menuComponent.acessaPaginaAdicionarMovimentacao();
         movimentacaoPage.preencheDataMovimentacao(obtemDataAtualEAdicionaDias(10));
         movimentacaoPage.preencheDataPagamento(obtemDataAtualEAdicionaDias(10));
